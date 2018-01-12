@@ -28,11 +28,6 @@
       autoLoadConntrackHelpers = true;
       connectionTrackingModules = [ "pptp" ];
     };
-    hosts = {
-      "127.0.0.1" = [
-        "fastapi.local"
-      ];
-    };
   };
 
   hardware = {
