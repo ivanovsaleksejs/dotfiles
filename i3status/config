@@ -1,0 +1,101 @@
+###############################################################################
+# ceerious i3 status config
+# see "man i3status" for documentation.
+#
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+###############################################################################
+
+general {
+    interval 		= 1
+    colors 			= true
+    color_good      = '#88b090'
+    color_degraded  = '#ccdc90'
+    color_bad       = '#e89393'
+}
+
+order += "volume master"
+order += "disk /"
+#order += "disk /home"
+#order += "run_watch DHCP"
+#order += "ipv6"
+order += "wireless wlp1s0"
+order += "path_exists VPN"
+#order += "ethernet enp0s25"
+order += "battery 1"
+#order += "cpu_temperature 0"
+order += "cpu_usage 0"
+order += "load"
+order += "tztime local"
+
+wireless wlp1s0 {
+    #format_up = "%quality  %essid %ip"
+    format_up = " %essid"
+    format_down = ""
+}
+
+ethernet enp0s25 {
+    #if you use %speed, i3status requires root privileges
+    format_up = "%ip (%speed)"
+    format_down = ""
+}
+
+battery 1 {
+    format = "%status %percentage %remaining"
+    format_down = ""
+    last_full_capacity = true
+    integer_battery_capacity = true
+    low_threshold = 20
+    threshold_type = percentage
+    hide_seconds = true
+    status_chr = " "
+    status_bat = " "
+    status_unk = " "
+    status_full = " "
+    color_bad = "#ff8800"
+}
+
+run_watch DHCP {
+    pidfile = "/var/run/dhclient*.pid"
+}
+
+path_exists VPN {
+    path = "/sys/class/net/ppp0"
+    format = "%title "
+    format_down = "%title "
+    color_good = "#ffcd00"
+    color_bad = "#00ff00"
+}
+
+tztime local {
+    format = "%V  %a %e.%b   %H:%M:%S"
+}
+
+load {
+    format = " %1min"
+}
+
+cpu_usage {
+    format = " %usage"
+}
+
+cpu_temperature 0 {
+	format = " %degrees°C"
+}
+
+disk "/" {
+	format = " %avail"
+	prefix_type	= custom
+	low_threshold = 20
+	threshold_type = percentage_avail
+}
+
+volume master {
+    format = "%volume  "
+    format_muted = " "
+    device = "pulse:1"
+    mixer = "Master"
+    mixer_idx = 0
+}

@@ -1,0 +1,50 @@
+[global_config]
+  focus = system
+  title_font = Source Sans Pro Ultra-Light 9
+  title_transmit_bg_color = "#d30102"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = gruvbox-light
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#7c6f64"
+    font = Source Code Pro 11
+    foreground_color = "#ebdbb2"
+    icon_bell = False
+    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    show_titlebar = False
+    use_system_font = False
+  [[gruvbox-dark]]
+    background_color = "#282828"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#7c6f64"
+    font = Source Code Pro 11
+    foreground_color = "#ebdbb2"
+    icon_bell = False
+    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    show_titlebar = False
+    use_system_font = False
+  [[gruvbox-light]]
+    background_color = "#ffffff"
+    background_image = None
+    cursor_blink = False
+    cursor_color = "#002b36"
+    font = Source Code Pro 11
+    foreground_color = "#002b36"
+    icon_bell = False
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    show_titlebar = False
+    use_system_font = False
