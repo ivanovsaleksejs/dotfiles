@@ -48,10 +48,11 @@
     redis
     php
     php71Packages.composer
-    lxqt.screengrab
     mysql
     openssl
     mcrypt
+    sshpass
+    spectacle
     # teamviewer
   ];
 }
