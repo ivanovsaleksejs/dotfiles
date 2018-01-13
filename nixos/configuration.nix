@@ -8,6 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./bashrc.nix
       ./packages.nix
       ./ui.nix
       ./web.nix
@@ -39,10 +40,6 @@
   };
 
   time.timeZone = "Europe/Riga";
-
-  environment.interactiveShellInit = ''
-    alias vim=nvim
-  '';
 
   system.stateVersion = "17.09";
 
