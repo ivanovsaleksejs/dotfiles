@@ -39,6 +39,9 @@ Plug 'https://github.com/StanAngeloff/php.vim', {'for': 'php'}
 " Haskell syntax highlight and indentation
 Plug 'https://github.com/neovimhaskell/haskell-vim'
 
+" nix syntax highlight and completion
+Plug 'LnL7/vim-nix'
+
 Plug 'https://github.com/elzr/vim-json', {'for': 'json'}
 Plug 'https://github.com/pangloss/vim-javascript', {'for': ['json', 'javascript', 'javascript.jsx']}
 
@@ -96,7 +99,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Key bindings
 imap <Ins> <NOP>
 nnoremap <M-d> :CtrlP<CR>
-nnoremap :W :%s/\s\+$//<CR>:w
+nnoremap :W :%s/\s\+$//e<CR>:w
 vmap <C-c> "+y
 vmap <C-v> "0p
 nnoremap <C-l> :set list!<CR>
@@ -110,4 +113,5 @@ call esearch#map('<M-g>', 'esearch')
 " Start esearch autofilled with a word under the cursor
 call esearch#map('<C-f>', 'esearch-word-under-cursor')
 
+hi Search ctermfg=black ctermbg=white guifg=#000000 guibg=#FACE8D
 hi ESearchMatch ctermfg=black ctermbg=white guifg=#000000 guibg=#FACE8D
