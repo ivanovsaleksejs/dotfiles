@@ -87,7 +87,7 @@ set $tag3 "3.work"
 set $tag4 "4.web"
 set $tag5 "5.IRC"
 set $tag6 "6.IM"
-set $tag7 "7.Fun"
+set $tag7 "7.Media"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -157,4 +157,4 @@ bar {
     position top
 }
 
-
+exec --no-startup-id feh --bg-fill ~/.config/i3/tag_cloud.png
