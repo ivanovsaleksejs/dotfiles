@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./vhosts.nix
+      /etc/nixos/vhosts.nix
     ];
 
   services = {

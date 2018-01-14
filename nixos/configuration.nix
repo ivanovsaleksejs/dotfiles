@@ -7,11 +7,11 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./bashrc.nix
-      ./packages.nix
-      ./ui.nix
-      ./web.nix
+      /etc/nixos/hardware-configuration.nix
+      /etc/nixos/bashrc.nix
+      /etc/nixos/packages.nix
+      /etc/nixos/ui.nix
+      /etc/nixos/web.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
