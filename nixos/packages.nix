@@ -53,6 +53,7 @@
     mcrypt
     sshpass
     spectacle
+    gimp
     # teamviewer
   ];
 }
