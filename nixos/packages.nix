@@ -54,6 +54,7 @@
     sshpass
     spectacle
     gimp
+    xmlindent
     # teamviewer
   ];
 }
