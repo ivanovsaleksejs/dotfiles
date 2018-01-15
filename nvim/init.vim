@@ -67,6 +67,9 @@ set shiftround
 au FileType nix set tabstop=2
 au FileType nix set shiftwidth=2
 
+" PeperColor scheme for diff
+au FileType diff colorscheme PaperColor
+
 " Do not create swap-files.
 set noswapfile
 
