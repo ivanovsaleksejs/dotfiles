@@ -157,4 +157,4 @@ bar {
     position top
 }
 
-exec --no-startup-id feh --bg-fill ~/.config/i3/tag_cloud.png
+exec --no-startup-id feh --bg-fill ~/.config/i3/albums.png
