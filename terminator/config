@@ -42,7 +42,6 @@
     background_color = "#ffffff"
     background_darkness = 0.9
     background_image = None
-    background_type = transparent
     cursor_blink = False
     cursor_color = "#002b36"
     font = Source Code Pro 11
