@@ -23,9 +23,9 @@ bindsym $mod+Ctrl+l exec i3lock
 bindsym Print exec spectacle
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness

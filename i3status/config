@@ -16,7 +16,8 @@ general {
     color_bad       = '#e89393'
 }
 
-order += "volume master"
+order += "volume headphones"
+order += "volume speaker"
 order += "disk /"
 #order += "disk /home"
 #order += "run_watch DHCP"
@@ -82,20 +83,33 @@ cpu_usage {
 }
 
 cpu_temperature 0 {
-	format = " %degrees°C"
+    format = " %degrees°C"
 }
 
 disk "/" {
-	format = " %avail"
-	prefix_type	= custom
-	low_threshold = 20
-	threshold_type = percentage_avail
+    format = " %avail"
+    prefix_type	= custom
+    low_threshold = 20
+    threshold_type = percentage_avail
 }
 
 volume master {
-    format = "%volume  "
-    format_muted = " "
-    device = "pulse:1"
+    format = "%volume  "
+    format_muted = ""
+    device = "pulse"
     mixer = "Master"
     mixer_idx = 0
+}
+volume headphones {
+    format = "%volume  "
+    format_muted = ""
+    device = "pulse:4"
+    mixer = "Headphone"
+}
+
+volume speaker {
+    format = "%volume  "
+    format_muted = ""
+    device = "pulse:0"
+    mixer = "Speaker"
 }
