@@ -55,6 +55,12 @@
     spectacle
     gimp
     xmlindent
+    cups
+    cups-filters
+    system_config_printer
+    nssmdns
+    avahi
+    libreoffice
     # teamviewer
   ];
 }

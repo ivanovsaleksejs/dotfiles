@@ -39,6 +39,11 @@
     };
   };
 
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+  services.avahi.allowPointToPoint = true;
+
   time.timeZone = "Europe/Riga";
 
   system.stateVersion = "17.09";
