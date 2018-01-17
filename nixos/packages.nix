@@ -60,7 +60,17 @@
     system_config_printer
     nssmdns
     avahi
+    mod_dnssd
+    p910nd
+    ghostscript
+    ghostscriptX
     libreoffice
-    # teamviewer
+    curl_unix_socket
+    wireshark
+    gutenprint
+    perl
+    teamviewer
+    samsung-unified-linux-driver
+    nodejs
   ];
 }

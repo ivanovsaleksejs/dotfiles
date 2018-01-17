@@ -33,7 +33,7 @@ order += "tztime local"
 
 wireless wlp1s0 {
     #format_up = "%quality  %essid %ip"
-    format_up = " %essid"
+    format_up = "%quality  %essid"
     format_down = ""
 }
 

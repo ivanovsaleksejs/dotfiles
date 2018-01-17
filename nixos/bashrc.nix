@@ -22,7 +22,7 @@
     }
 
     function difc () {
-      vim <(svn diff --changelist "$1")
+      nvim <(svn diff --changelist "$1")
     }
 
     function ci() {

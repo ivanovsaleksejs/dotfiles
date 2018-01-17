@@ -39,10 +39,23 @@
     };
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers  = [
+      pkgs.gutenprint
+      pkgs.gutenprintBin
+      pkgs.splix
+    ];
+  };
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.avahi.allowPointToPoint = true;
+
+  services.teamviewer.enable = true;
+
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+  '';
 
   time.timeZone = "Europe/Riga";
 
