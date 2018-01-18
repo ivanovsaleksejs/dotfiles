@@ -18,7 +18,7 @@ bindsym $mod+F2 exec dmenu_run
 bindsym $mod+F3 exec networkmanager_dmenu
 bindsym $mod+F4 exec gksu networkmanager_dmenu
 # lock screen
-bindsym $mod+Ctrl+l exec i3lock --image=/home/aleksejs/.config/i3/albums.png
+bindsym $mod+Ctrl+l exec i3lock -i ~/.config/i3/albums.png
 # shutdown menu
 bindsym XF86PowerOff exec ~/.config/i3/shutdown_menu.sh
 # screen grab
