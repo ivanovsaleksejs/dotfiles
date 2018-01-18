@@ -72,5 +72,6 @@
     teamviewer
     samsung-unified-linux-driver
     nodejs
+    imagemagick
   ];
 }
