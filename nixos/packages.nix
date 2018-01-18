@@ -73,5 +73,7 @@
     samsung-unified-linux-driver
     nodejs
     imagemagick
+    simple-scan
+    qiv
   ];
 }
