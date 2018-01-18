@@ -160,4 +160,4 @@ bar {
     position top
 }
 
-exec --no-startup-id feh --bg ~/.config/i3/albums.png
+exec --no-startup-id qiv --root ~/.config/i3/albums.png
