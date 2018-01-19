@@ -75,5 +75,7 @@
     imagemagick
     simple-scan
     qiv
+    xautolock
+    steam
   ];
 }

@@ -8,6 +8,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      /etc/nixos/services.nix
       /etc/nixos/bashrc.nix
       /etc/nixos/packages.nix
       /etc/nixos/ui.nix
@@ -36,25 +37,13 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
+      support32Bit = true;
     };
+    opengl.driSupport32Bit = true;
   };
 
-  services.printing = {
-    enable = true;
-    drivers  = [
-      pkgs.gutenprint
-      pkgs.gutenprintBin
-      pkgs.splix
-    ];
-  };
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-  services.avahi.allowPointToPoint = true;
-
-  services.teamviewer.enable = true;
-
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
+  powerManagement.resumeCommands  = ''
+    exec --no-startup-id xautolock -time 5 -locker i3lock -i ~/.config/i3/albums.png &
   '';
 
   time.timeZone = "Europe/Riga";
