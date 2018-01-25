@@ -4,6 +4,8 @@ for_window [class="spectacle"] floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
 
+for_window [class=".*"] title_format "<b>%title</b> (%instance)"
+
 font pango:Source Code Pro 11
 
 floating_modifier $mod
@@ -18,7 +20,7 @@ bindsym $mod+F2 exec dmenu_run
 bindsym $mod+F3 exec networkmanager_dmenu
 bindsym $mod+F4 exec gksu networkmanager_dmenu
 # lock screen
-bindsym $mod+Ctrl+l exec i3lock -i ~/.config/i3/albums.png
+bindsym $mod+Ctrl+l exec i3lock -i ~/.config/i3/background.png
 # shutdown menu
 bindsym XF86PowerOff exec ~/.config/i3/shutdown_menu.sh
 # screen grab
@@ -160,4 +162,4 @@ bar {
     position top
 }
 
-exec --no-startup-id qiv --root ~/.config/i3/albums.png
+exec --no-startup-id QUERY_STRING="user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&frameWidth=1920&frameHeight=1080&noborder=on" ~/.config/i3/lastfm_wp.php > ~/.config/i3/background.png && qiv --root ~/.config/i3/background.png
