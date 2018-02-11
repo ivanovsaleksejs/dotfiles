@@ -10,6 +10,7 @@ font pango:Source Code Pro 11
 
 floating_modifier $mod
 
+focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec terminator
 # kill focused window
@@ -158,6 +159,7 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     # status_command i3blocks
+    # status_command polybar top
     font pango: Source Sans Pro, Icons 12
     position top
 }

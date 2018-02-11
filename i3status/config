@@ -16,8 +16,8 @@ general {
     color_bad       = '#e89393'
 }
 
-order += "volume headphones"
-order += "volume speaker"
+order += "volume master"
+#order += "volume speaker"
 order += "disk /"
 #order += "disk /home"
 #order += "run_watch DHCP"
@@ -96,9 +96,9 @@ disk "/" {
 volume master {
     format = "%volume  "
     format_muted = ""
-    device = "pulse"
-    mixer = "Master"
-    mixer_idx = 0
+    device="pulse:running"
+    #mixer = "Master"
+    mixer_idx = -1
 }
 volume headphones {
     format = "%volume  "
