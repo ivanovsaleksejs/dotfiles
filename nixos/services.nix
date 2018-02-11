@@ -23,5 +23,10 @@
     logind.extraConfig = ''
       HandlePowerKey=ignore
     '';
+
+    saned = {
+      enable = true;
+      extraConfig = "192.168.1.0/24";
+    };
   };
 }

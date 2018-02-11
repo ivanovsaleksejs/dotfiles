@@ -39,7 +39,9 @@
       package = pkgs.pulseaudioFull;
       support32Bit = true;
     };
-    opengl.driSupport32Bit = true;
+    sane = {
+      enable = true;
+    };
   };
 
   powerManagement.resumeCommands  = ''

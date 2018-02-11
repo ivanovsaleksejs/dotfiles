@@ -23,7 +23,6 @@
     neovim
     xterm
     terminator
-    alacritty
     xclip
     google-chrome
     chromium
@@ -77,5 +76,18 @@
     qiv
     xautolock
     steam
+    gsimplecal
+    breeze-gtk
+    lshw
+    wine
+    yarn
+    xsane
+    gwenview
+    krusader
+    polybar
+    volumeicon
+    stack
+    gnumake
+    ghc
   ];
 }

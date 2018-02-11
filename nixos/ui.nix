@@ -1,11 +1,23 @@
 { config, pkgs, ... }:
 
 {
+  hardware ={
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+      s3tcSupport = true;
+    };
+  };
+
   i18n = {
      consoleFont = "sun12x22";
   };
 
   services.xserver = {
+    videoDrivers = [ "mesa" ];
     enable = true;
     windowManager = {
       i3.enable = true;
