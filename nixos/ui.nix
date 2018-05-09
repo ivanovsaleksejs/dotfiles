@@ -17,7 +17,7 @@
   };
 
   services.xserver = {
-    videoDrivers = [ "mesa" ];
+    videoDrivers = [ "intel" ];
     enable = true;
     windowManager = {
       i3.enable = true;
@@ -46,11 +46,12 @@
     fonts = with pkgs; [
       material-icons
       font-awesome-ttf
-      noto-fonts-cjk
       noto-fonts-emoji
-      noto-fonts
       source-code-pro
       source-sans-pro
+      dejavu_fonts
+      liberation_ttf
+      emojione
     ];
   };
 }
