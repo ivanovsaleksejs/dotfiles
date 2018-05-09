@@ -29,6 +29,7 @@
     firewall = {
       autoLoadConntrackHelpers = true;
       connectionTrackingModules = [ "pptp" ];
+      allowedTCPPorts = [ 80 443 6881 8881 ];
     };
   };
 
