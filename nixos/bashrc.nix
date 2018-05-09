@@ -18,7 +18,7 @@
     }
 
     function tf () {
-      nmcli con $1 id TF
+      nmcli --ask con $1 id TF\ New
     }
 
     function difc () {
