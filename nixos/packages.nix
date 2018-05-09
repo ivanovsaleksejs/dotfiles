@@ -6,88 +6,117 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+
+    # system
     bash
-    bc
-    wget
-    pulseaudioFull
-    pavucontrol
     dbus
-    xorg.xbacklight
-    htop
     gksu
-    lxappearance
-    dmenu
-    networkmanager_dmenu
-    networkmanager_pptp
-    networkmanager_openvpn
-    neovim
-    xterm
-    terminator
-    xclip
-    google-chrome
-    chromium
-    firefox
-    weechat
-    skype
-    discord
-    git
-    dunst
+    htop
+    wget
+
+    # terminals and utils
+    bc
+    direnv
     libnotify
-    unzip
+    lshw
+    neovim
+    openssl
+    sshpass
+    terminator
+    tmux
+    vscode
+    xclip
+    xterm
+
+    # UI
+    breeze-gtk
+    dmenu
+    dunst
+    gsimplecal
+    gwenview
     i3-gaps
     i3blocks
-    pptp
-    openvpn
-    blueman
-    mpv
-    spotify
-    nginx
-    #fcgiwrap
-    subversion
-    redis
-    php
-    php71Packages.composer
-    mysql
-    openssl
-    mcrypt
-    sshpass
+    kdeApplications.okular
+    lxappearance
+    networkmanager_dmenu
+    networkmanager_openconnect
+    networkmanager_openvpn
+    qiv
     spectacle
-    gimp
-    xmlindent
+    xautolock
+    xorg.xbacklight
+
+    # Network
+    avahi
+    curl_unix_socket
+    libreoffice
+    mod_dnssd
+    nssmdns
+    openvpn
+    pptp
+
+    # Audio
+    blueman
+    openconnect
+    pavucontrol
+    pulseaudioFull
+
+    # Printers
     cups
     cups-filters
-    system_config_printer
-    nssmdns
-    avahi
-    mod_dnssd
-    p910nd
     ghostscript
     ghostscriptX
-    libreoffice
-    curl_unix_socket
-    wireshark
     gutenprint
-    perl
-    teamviewer
+    hplip
+    p910nd
     samsung-unified-linux-driver
-    nodejs
-    imagemagick
     simple-scan
-    qiv
-    xautolock
-    steam
-    gsimplecal
-    breeze-gtk
-    lshw
-    wine
-    yarn
+    system_config_printer
     xsane
-    gwenview
+
+    # Utils
+    arandr
     krusader
-    polybar
-    volumeicon
-    stack
-    gnumake
+    unrar
+    unzip
+    wine
+    xmlindent
+
+    # Programming
+    cabal-install
     ghc
+    git
+    git-crypt
+    gnumake
+    mcrypt
+    mysql
+    nginx
+    nixops
+    nodejs
+    perl
+    php
+    php71Packages.composer
+    redis
+    stack
+    subversion
+    yarn
+
+    # Apps
+    chromium
+    discord
+    firefox
+    gimp
+    google-chrome
+    imagemagick
+    inkscape
+    ktorrent
+    mpv
+    skype
+    spotify
+    steam
+    tuxguitar
+    vlc
+    weechat
+    wireshark
   ];
 }
