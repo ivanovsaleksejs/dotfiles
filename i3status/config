@@ -63,7 +63,8 @@ run_watch DHCP {
 }
 
 path_exists VPN {
-    path = "/sys/class/net/ppp0"
+    #path = "/sys/class/net/ppp0"
+    path = "/sys/class/net/tun0"
     format = "%title "
     format_down = "%title "
     color_good = "#ffcd00"
