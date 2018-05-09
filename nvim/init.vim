@@ -33,6 +33,9 @@ Plug 'https://github.com/tpope/vim-sleuth'
 
 Plug 'lifepillar/vim-mucomplete'
 
+" Indent
+Plug 'junegunn/vim-easy-align'
+
 " PHP syntax highlight
 Plug 'https://github.com/StanAngeloff/php.vim', {'for': 'php'}
 
