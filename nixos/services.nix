@@ -22,6 +22,7 @@
 
     logind.extraConfig = ''
       HandlePowerKey=ignore
+      HandleLidSwitch=pm-suspend
     '';
 
     saned = {

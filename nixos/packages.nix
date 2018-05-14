@@ -21,6 +21,7 @@
     lshw
     neovim
     openssl
+    pmutils
     sshpass
     terminator
     tmux
@@ -104,7 +105,6 @@
     # Apps
     chromium
     discord
-    firefox
     gimp
     google-chrome
     imagemagick
