@@ -19,7 +19,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+F2 exec dmenu_run
 # nm applet for dmenu
 bindsym $mod+F3 exec networkmanager_dmenu
-bindsym $mod+F4 exec gksu networkmanager_dmenu
+bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
 # lock screen
 bindsym $mod+Ctrl+l exec i3lock -i ~/.config/i3/background.png
 # shutdown menu
