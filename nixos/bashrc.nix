@@ -13,6 +13,8 @@
       grep -Rn --exclude-dir=".svn" --exclude-dir=".git" "$@"
     }
 
+    alias background='QUERY_STRING="user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&frameWidth=1920&frameHeight=1080&noborder=on" ~/.config/i3/lastfm_wp.php > ~/.config/i3/background.png && qiv --root ~/.config/i3/background.png'
+
     function hs () {
       ghc -e "$1"
     }
