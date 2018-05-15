@@ -20,10 +20,13 @@
 
     teamviewer.enable = true;
 
-    logind.extraConfig = ''
-      HandlePowerKey=ignore
-      HandleLidSwitch=pm-suspend
-    '';
+    logind = {
+      lidSwitch = "ignore";
+      extraConfig = ''
+        HandlePowerKey=ignore
+        HandleLidSwitch=pm-suspend
+      '';
+    };
 
     saned = {
       enable = true;
