@@ -21,10 +21,9 @@
     teamviewer.enable = true;
 
     logind = {
-      lidSwitch = "ignore";
+      lidSwitch = "suspend";
       extraConfig = ''
         HandlePowerKey=ignore
-        HandleLidSwitch=pm-suspend
       '';
     };
 
