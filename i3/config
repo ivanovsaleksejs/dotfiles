@@ -164,4 +164,6 @@ bar {
     position top
 }
 
-exec --no-startup-id QUERY_STRING="user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&frameWidth=1920&frameHeight=1080&noborder=on" ~/.config/i3/lastfm_wp.php > ~/.config/i3/background.png && qiv --root ~/.config/i3/background.png
+exec_always --no-startup-id xss-lock -- i3lock -n -i $HOME/.config/i3/background.png &
+
+exec --no-startup-id background

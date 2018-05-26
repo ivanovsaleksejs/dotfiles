@@ -27,6 +27,7 @@
     tmux
     vscode
     xclip
+    xss-lock
     xterm
 
     # UI
