@@ -42,13 +42,24 @@
     };
     sane = {
       enable = true;
+      extraBackends = [ pkgs.hplipWithPlugin ];
+      netConf = "192.168.0.107";
     };
   };
 
-  powerManagement.resumeCommands  = ''
-    exec --no-startup-id xautolock -time 5 -locker i3lock -i ~/.config/i3/albums.png &
-  '';
+  powerManagement = {
+    enable = true;
+    powerUpCommands  = ''
+      background
+      systemctl restart bluetooth
+    '';
+  };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
   time.timeZone = "Europe/Riga";
 
   system.stateVersion = "17.09";
