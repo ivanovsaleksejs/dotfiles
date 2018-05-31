@@ -20,6 +20,7 @@ bindsym $mod+F2 exec dmenu_run
 # nm applet for dmenu
 bindsym $mod+F3 exec networkmanager_dmenu
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
+bindsym $mod+F5 exec ~/.config/i3/dmenu_nixos.sh
 # lock screen
 bindsym $mod+Ctrl+l exec ~/.config/i3/lock.sh
 # shutdown menu
