@@ -3,6 +3,7 @@ set $mod Mod4
 for_window [class="spectacle"] floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
+for_window [class="TeamViewer"] floating enable
 
 for_window [class=".*"] title_format "<b>%title</b> (%instance)"
 
