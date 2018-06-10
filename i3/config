@@ -16,11 +16,15 @@ focus_follows_mouse no
 bindsym $mod+Return exec terminator
 # kill focused window
 bindsym $mod+Shift+q kill
+# task switcher
+bindsym Ctrl+Shift+Escape exec ~/.config/i3/dmenu_running.sh
 # start dmenu (a program launcher)
 bindsym $mod+F2 exec dmenu_run
 # nm applet for dmenu
 bindsym $mod+F3 exec networkmanager_dmenu
+# frequently used shortcuts
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
+# searches in nixos packages and launches in nix-shell
 bindsym $mod+F5 exec ~/.config/i3/dmenu_nixos.sh
 # lock screen
 bindsym $mod+Ctrl+l exec ~/.config/i3/lock.sh
