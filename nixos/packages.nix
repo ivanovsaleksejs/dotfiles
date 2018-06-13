@@ -16,13 +16,21 @@
 
     # terminals and utils
     bc
+    cool-retro-term
     direnv
+    file
+    home-manager
+    kdiff3
     libnotify
     lshw
     neovim
+    ntfs3g
     openssl
+    patchelf
+    sysstat
     pmutils
     sshpass
+    steam-run
     terminator
     tmux
     vscode
@@ -43,6 +51,7 @@
     networkmanager_dmenu
     networkmanager_openconnect
     networkmanager_openvpn
+    openjdk10
     qiv
     spectacle
     xautolock
@@ -69,7 +78,6 @@
     ghostscript
     ghostscriptX
     gutenprint
-    hplip
     p910nd
     samsung-unified-linux-driver
     simple-scan
@@ -86,15 +94,19 @@
 
     # Programming
     cabal-install
+    gcc
     ghc
     git
     git-crypt
     gnumake
+    yarn
+    libstdcxx5
     mcrypt
     mysql
     nginx
     nixops
     nodejs
+    nodePackages.node2nix
     perl
     php
     php71Packages.composer
