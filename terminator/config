@@ -1,6 +1,5 @@
 [global_config]
   always_split_with_profile = True
-  borderless = True
   focus = system
   title_font = Source Code Pro 11
   title_transmit_bg_color = "#d30102"
