@@ -10,7 +10,7 @@ application=$(
 	# Show only app-names
    	cut -d" " -f3 |\
 	# Pipe to dmenu ($@ to include font settings from dwm/config.h)
-	dmenu -i -p "Switch to" $@
+	dmenu -l 40 -i -p "Switch to" $@
 )
 
 # Switch to chosen application
