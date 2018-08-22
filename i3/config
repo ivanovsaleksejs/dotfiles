@@ -26,6 +26,8 @@ bindsym $mod+F3 exec networkmanager_dmenu
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
 # searches in nixos packages and launches in nix-shell
 bindsym $mod+F5 exec ~/.config/i3/dmenu_nixos.sh
+# Browses files in cwd and opens file with xdg
+bindsym $mod+d exec ~/.config/i3/fm.sh
 # lock screen
 bindsym $mod+Ctrl+l exec ~/.config/i3/lock.sh
 # shutdown menu
