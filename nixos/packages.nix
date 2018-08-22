@@ -12,6 +12,7 @@
     dbus
     gksu
     htop
+    mtpfs
     wget
 
     # terminals and utils
@@ -65,6 +66,7 @@
     nssmdns
     openvpn
     pptp
+    x2goclient
 
     # Audio
     blueman
@@ -78,6 +80,7 @@
     ghostscript
     ghostscriptX
     gutenprint
+    hplip
     p910nd
     samsung-unified-linux-driver
     simple-scan
@@ -123,6 +126,7 @@
     imagemagick
     inkscape
     ktorrent
+    messenger-for-desktop
     mpv
     skype
     spotify
