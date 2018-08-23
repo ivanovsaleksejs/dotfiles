@@ -96,23 +96,27 @@
     xmlindent
 
     # Programming
+    bison
     cabal-install
+    flex
     gcc
     ghc
     git
     git-crypt
     gnumake
-    yarn
+    gperf
     libstdcxx5
     mcrypt
     mysql
+    ncurses
     nginx
     nixops
-    nodejs
     nodePackages.node2nix
+    nodejs
     perl
     php
     php71Packages.composer
+    python27Packages.pyserial
     redis
     stack
     subversion
