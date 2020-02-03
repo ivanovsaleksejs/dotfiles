@@ -9,7 +9,7 @@ select=$(echo -e 'Suspend\nReboot\nShutdown' | dmenu -nb ${background} -nf ${for
 
 case ${select} in
         "Suspend")
-                i3exit suspend
+                systemctl suspend
                 ;;
         "Reboot")
                 i3exit reboot

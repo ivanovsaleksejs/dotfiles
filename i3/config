@@ -18,10 +18,16 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 # task switcher
 bindsym Ctrl+Shift+Escape exec ~/.config/i3/dmenu_running.sh
+# Switch between previous workspace
+bindsym $mod+Tab workspace back_and_forth
+
 # start dmenu (a program launcher)
 bindsym $mod+F2 exec dmenu_run
-# nm applet for dmenu
-bindsym $mod+F3 exec networkmanager_dmenu
+# start sudo dmenu (a program launcher)
+bindsym Shift+$mod+F2 exec ~/.config/i3/sudo_dmenu_run.sh
+# cheatsheets
+bindsym $mod+F3 exec terminator --profile=dark -mbT 'fzf' -e '~/.config/i3/cheatsheets.sh'
+for_window [title="fzf"] floating enable, resize set 1024 768, move absolute position center
 # frequently used shortcuts
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
 # searches in nixos packages and launches in nix-shell
@@ -36,9 +42,9 @@ bindsym XF86PowerOff exec ~/.config/i3/shutdown_menu.sh
 bindsym Print exec spectacle
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | grep -o -E '[0-9]+' | head -1) +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | grep -o -E '[0-9]+' | head -1) -5% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute $(pactl -- list |  grep RUNNING -B1 | cut -c 7 | head -1) toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -172,6 +178,7 @@ bar {
     position top
 }
 
-exec_always --no-startup-id xss-lock -- i3lock -n -i $HOME/.config/i3/background.png &
+#exec_always --no-startup-id xss-lock -- i3lock -n -i $HOME/.config/i3/background.png &
+exec_always --no-startup-id xss-lock -l ~/.config/i3/lock.sh &
 
 exec --no-startup-id background

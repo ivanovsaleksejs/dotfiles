@@ -9,7 +9,7 @@ select=$(echo -e 'Enable 2nd display\nDisable 2nd display\nRestart bluetooth' | 
 
 case ${select} in
         "Enable 2nd display")
-                xrandr --output eDP1 --auto --output DP1 --auto --right-of eDP1
+                xrandr --output eDP1 --auto --output DP1 --auto --left-of eDP1
                 ;;
         "Disable 2nd display")
                 xrandr --auto

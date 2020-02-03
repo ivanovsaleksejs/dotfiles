@@ -42,7 +42,7 @@ $topAlbums->load($query);
 $imagesUrlsList = array();
 $topAlbumsList = $topAlbums->getElementsByTagName("album");
 for ($i=0; $i<$limit; $i++) {
-    if (!preg_match('/default_album/', $topAlbumsList->item($i)->getElementsByTagName("image")->item(3)->nodeValue))
+    if ($topAlbumsList->item($i) && !preg_match('/default_album/', $topAlbumsList->item($i)->getElementsByTagName("image")->item(3)->nodeValue))
         $imagesUrlsList[] = $topAlbumsList->item($i)->getElementsByTagName("image")->item(3)->nodeValue;
 }
 
