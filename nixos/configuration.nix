@@ -13,6 +13,7 @@
       /etc/nixos/packages.nix
       /etc/nixos/ui.nix
       /etc/nixos/web.nix
+      /etc/nixos/sane-extra-config.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -22,15 +23,20 @@
     grub.gfxmodeEfi = "1024x576";
   };
 
-  boot.kernelModules = [ "nf_conntrack_pptp" ];
+  #boot.kernelModules = [ "nf_conntrack_pptp" ];
+
+  #boot.kernel.sysctl."net.ipv6.conf.wlp1s0.disable_ipv6" = true;
 
   networking = {
-    networkmanager.enable = true;
-    firewall = {
-      autoLoadConntrackHelpers = true;
-      connectionTrackingModules = [ "pptp" ];
-      allowedTCPPorts = [ 80 443 6881 8881 ];
+    networkmanager = {
+      enable = true;
     };
+    firewall = {
+      #autoLoadConntrackHelpers = true;
+      #connectionTrackingModules = [ "pptp" ];
+      allowedTCPPorts = [ 80 443 3000 5353 6881 8081 8881 ];
+    };
+    #nameservers = [ "192.168.0.1" "8.8.8.8" "9.9.9.9" ];
   };
 
   hardware = {
@@ -43,17 +49,14 @@
     sane = {
       enable = true;
       extraBackends = [ pkgs.hplipWithPlugin ];
-      netConf = "192.168.0.107";
+      #netConf = "192.168.1.8:9100";
+      #extraConfig."samsung" = ''
+      #  net 192.168.1.8 0x04e8
+      #'';
     };
   };
-
-  powerManagement = {
-    enable = true;
-    powerUpCommands  = ''
-      background
-      systemctl restart bluetooth
-    '';
-  };
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "aleksejs" ];
 
   nix.gc = {
     automatic = true;
@@ -63,10 +66,11 @@
   time.timeZone = "Europe/Riga";
 
   system = {
-    stateVersion = "18.03";
+    #nssHosts = [ "mdns" ];
     autoUpgrade = {
       enable = true;
     };
   };
+  nixpkgs.config.allowUnfree = true;
 
 }

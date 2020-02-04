@@ -4,6 +4,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  programs.npm.enable = true;
 
   environment.systemPackages = with pkgs; [
 
@@ -16,10 +17,13 @@
     wget
 
     # terminals and utils
+    # adafruit-ampy
+    arp-scan
     bc
     cool-retro-term
     direnv
     file
+    gnome3.gnome-keyring
     home-manager
     kdiff3
     libnotify
@@ -32,29 +36,33 @@
     pmutils
     sshpass
     steam-run
+    screen
+    systemd
     terminator
     tmux
+    udev
     vscode
     xclip
     xss-lock
     xterm
 
     # UI
-    breeze-gtk
     dmenu
     dunst
+    feh
+    fzf
+    gnome-themes-extra
+    gnome3.adwaita-icon-theme
     gsimplecal
     gwenview
-    i3-gaps
     i3blocks
     kdeApplications.okular
     lxappearance
     networkmanager_dmenu
     networkmanager_openconnect
     networkmanager_openvpn
-    openjdk10
-    qiv
     spectacle
+    volumeicon
     xautolock
     xorg.xbacklight
 
@@ -63,12 +71,14 @@
     curl_unix_socket
     libreoffice
     mod_dnssd
+    networkmanagerapplet
     nssmdns
     openvpn
     pptp
     x2goclient
 
     # Audio
+    audacious
     blueman
     openconnect
     pavucontrol
@@ -77,27 +87,32 @@
     # Printers
     cups
     cups-filters
-    ghostscript
-    ghostscriptX
     gutenprint
-    hplip
     p910nd
     samsung-unified-linux-driver
     simple-scan
+    splix
     system_config_printer
     xsane
 
     # Utils
     arandr
+    asciinema
+    bind
+    google-authenticator
     krusader
+    ranger
     unrar
     unzip
+    virtualbox
     wine
     xmlindent
 
     # Programming
+    arduino
     bison
     cabal-install
+    esptool
     flex
     gcc
     ghc
@@ -106,6 +121,7 @@
     gnumake
     gperf
     libstdcxx5
+    libftdi1
     mcrypt
     mysql
     ncurses
@@ -115,29 +131,45 @@
     nodejs
     perl
     php
-    php71Packages.composer
-    python27Packages.pyserial
+    php73Packages.composer
+    postgresql
+    python37Packages.pyserial
+    (python35.withPackages(ps: with ps; [ setuptools jinja2 ]))
+    python37Packages.setuptools
     redis
     stack
     subversion
     yarn
+    ycmd
 
     # Apps
+    # caprine
     chromium
     discord
+    easytag
     gimp
     google-chrome
     imagemagick
     inkscape
+    qbittorrent
     ktorrent
-    messenger-for-desktop
+    # messenger-for-desktop
+    moc
     mpv
-    skype
+    skypeforlinux
     spotify
     steam
+    tdesktop
+    teamviewer
     tuxguitar
     vlc
     weechat
     wireshark
+
+    # Gaming
+    openmw
+
+    # XFCE
+
   ];
 }

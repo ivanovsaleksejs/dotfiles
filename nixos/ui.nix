@@ -23,6 +23,21 @@
       i3.enable = true;
       default = "i3";
     };
+    desktopManager = {
+      xfce = {
+        enable = true;
+        thunarPlugins = with pkgs.xfce; [
+          thunar-archive-plugin
+          thunar-dropbox-plugin
+          thunar_volman
+        ];
+
+        noDesktop = true;
+        enableXfwm = false;
+      };
+
+      default = "xfce";
+    };
     resolutions = [
       {
         x = 1920;
@@ -42,13 +57,13 @@
 
   };
   fonts = {
-    fontconfig.enable = true;
+  #  fontconfig.enable = true;
     fonts = with pkgs; [
       material-icons
       font-awesome-ttf
       noto-fonts-emoji
       source-code-pro
-      source-sans-pro
+      #source-sans-pro
       dejavu_fonts
       liberation_ttf
       emojione

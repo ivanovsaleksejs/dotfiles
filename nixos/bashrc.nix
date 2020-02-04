@@ -2,46 +2,56 @@
 
 {
 
-  environment.interactiveShellInit = ''
-    HISTCONTROL=ignoreboth
+  environment = {
+    interactiveShellInit = ''
+      HISTCONTROL=ignoreboth
 
-    shopt -s histappend
+      export PROMPT_COMMAND='history -a'
 
-    shopt -s checkwinsize
+      export PATH="$PATH:/var/www/esp/esp/xtensa-esp32-elf/bin"
 
-    function search () {
-      grep -Rn --exclude-dir=".svn" --exclude-dir=".git" "$@"
-    }
+      export IDF_PATH="/var/www/esp/esp-idf"
 
-    alias background='QUERY_STRING="user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&frameWidth=1920&frameHeight=1080&noborder=on" ~/.config/i3/lastfm_wp.php > ~/.config/i3/background.png && qiv --root ~/.config/i3/background.png'
+      shopt -s histappend
 
-    function hs () {
-      ghc -e "$1"
-    }
+      shopt -s checkwinsize
 
-    function tf () {
-      nmcli --ask con $1 id TF\ New
-    }
+      function search () {
+        grep -Rn --exclude-dir=".svn" --exclude-dir=".git" "$@"
+      }
 
-    function difc () {
-      nvim <(svn diff --changelist "$1")
-    }
+      alias sudo='sudo '
 
-    function ci() {
-      tf up && svn ci --changelist "$1" -m "$2" && tf down
-    }
+      alias background='curl "http://fair.lv/?user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&noborder=on&ignorePattern=/Best Of|Game Soundtrack/&replace[]=9e14c69d22da476ab40bd5533c228c56,718758354a5d26ae8183ededddba7d85" --output ~/.config/i3/background.png && feh --bg-scale ~/.config/i3/background.png'
 
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+      function hs () {
+        ghc -e "$1"
+      }
 
-    alias vim=nvim
+      function tf () {
+        sudo nmcli --ask con $1 id TF\ New
+      }
 
-    alias up='tf up && sleep 3 && svn up && tf down'
+      function difc () {
+        nvim <(svn diff --changelist "$1")
+      }
 
-    alias dif='vim <(svn diff)'
+      function ci() {
+        tf up && svn ci --changelist "$1" -m "$2" && tf down
+      }
 
-  '';
+      alias ls='ls --color=auto'
+      alias grep='grep --color=auto'
+      alias fgrep='fgrep --color=auto'
+      alias egrep='egrep --color=auto'
+
+      alias vim=nvim
+
+      alias up='tf up && sleep 3 && svn up && tf down'
+
+      alias dif='vim <(svn diff)'
+
+    '';
+  };
 
 }
