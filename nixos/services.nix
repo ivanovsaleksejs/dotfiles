@@ -29,6 +29,17 @@
       #reflector = true;
     };
 
+    phpfpm.phpOptions = ''
+      zend_extension=${pkgs.php73Extensions.xdebug}/lib/php/extensions/xdebug.so
+      max_execution_time = 0
+      xdebug.remote_autostart=on
+      xdebug.remote_enable=on
+      xdebug.remote_mode=req
+      xdebug.remote_handler=dbgp
+      xdebug.remote_host=localhost
+      xdebug.remote_port=9000
+    '';
+
     phpfpm.pools.mypool = {
       user = "nginx";
       settings = {
@@ -46,7 +57,7 @@
       phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
     };
 
-    #teamviewer.enable = true;
+    teamviewer.enable = true;
 
     logind = {
       lidSwitch = "suspend";
@@ -58,11 +69,19 @@
 
     postgresql.enable = true;
 
+    postfix ={
+      enable = true;
+      extraConfig = ''
+        inet_protocols = ipv4
+      '';
+    };
+
     mongodb.enable = true;
 
-    #saned = {
-      #  enable = true;
-      #extraConfig = "192.168.1.8/24";
-      #};
+    gnome3.gnome-keyring.enable = true;
+
+    saned = {
+      enable = true;
+    };
   };
 }

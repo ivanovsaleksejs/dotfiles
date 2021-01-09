@@ -22,14 +22,14 @@
 
       alias sudo='sudo '
 
-      alias background='curl "http://fair.lv/?user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&noborder=on&ignorePattern=/Best Of|Game Soundtrack/&replace[]=9e14c69d22da476ab40bd5533c228c56,718758354a5d26ae8183ededddba7d85" --output ~/.config/i3/background.png && feh --bg-scale ~/.config/i3/background.png'
+      alias background='curl "http://fair.lv/?user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&noborder=on&ignorePattern=/Best Of|Skywind OST|Game Soundtrack/&replace[]=498d8417f6084db98f70569066fc5cbd,718758354a5d26ae8183ededddba7d85&replace[]=9e14c69d22da476ab40bd5533c228c56,718758354a5d26ae8183ededddba7d85&replace[]=7e4e0e68f68a1084f971ccef277a0287,718758354a5d26ae8183ededddba7d85" --output ~/.config/i3/background.png && feh --bg-scale ~/.config/i3/background.png'
 
       function hs () {
         ghc -e "$1"
       }
 
       function tf () {
-        sudo nmcli --ask con $1 id TF\ New
+        sudo nmcli --ask con $1 id TF
       }
 
       function difc () {
@@ -50,6 +50,8 @@
       alias up='tf up && sleep 3 && svn up && tf down'
 
       alias dif='vim <(svn diff)'
+
+      eval "$(direnv hook bash)"
 
     '';
   };

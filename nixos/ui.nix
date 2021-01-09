@@ -8,24 +8,24 @@
       driSupport32Bit = true;
       extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
       extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
-      s3tcSupport = true;
     };
   };
 
-  i18n = {
-     consoleFont = "sun12x22";
-  };
+  console.font = "sun12x22";
 
   services.xserver = {
     videoDrivers = [ "intel" ];
     enable = true;
+    libinput = {
+      enable = true;
+      scrollMethod = "edge";
+    };
     windowManager = {
       i3.enable = true;
-      default = "i3";
     };
     desktopManager = {
       xfce = {
-        enable = true;
+        enable = false;
         thunarPlugins = with pkgs.xfce; [
           thunar-archive-plugin
           thunar-dropbox-plugin
@@ -35,9 +35,8 @@
         noDesktop = true;
         enableXfwm = false;
       };
-
-      default = "xfce";
     };
+    displayManager.defaultSession = "none+i3";
     resolutions = [
       {
         x = 1920;
@@ -49,10 +48,11 @@
       y = 1080;
     };
 
-    synaptics.enable = true;
+    synaptics.enable = false;
+    #libinput.enable = true;
     layout = "lv,ru";
     xkbModel = "microsoft";
-    xkbOptions = "grp:alt_shift_toggle,grp_led:caps";
+    xkbOptions = "grp:alt_shift_toggle,grp_led:caps,caps:escape";
     xkbVariant = "winkeys";
 
   };
@@ -63,7 +63,7 @@
       font-awesome-ttf
       noto-fonts-emoji
       source-code-pro
-      #source-sans-pro
+      source-sans-pro
       dejavu_fonts
       liberation_ttf
       emojione

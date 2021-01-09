@@ -14,10 +14,12 @@
     gksu
     htop
     mtpfs
+    sshfs
     wget
 
     # terminals and utils
     # adafruit-ampy
+    alacritty
     arp-scan
     bc
     cool-retro-term
@@ -28,11 +30,16 @@
     kdiff3
     libnotify
     lshw
+    metasploit
+    miraclecast
+    gnome3.nautilus
     neovim
     ntfs3g
     openssl
     patchelf
+    perl532Packages.FileMimeInfo
     sysstat
+    p7zip
     pmutils
     sshpass
     steam-run
@@ -41,8 +48,10 @@
     terminator
     tmux
     udev
-    vscode
+    #vscode
+    wmctrl
     xclip
+    xdotool
     xss-lock
     xterm
 
@@ -61,10 +70,14 @@
     networkmanager_dmenu
     networkmanager_openconnect
     networkmanager_openvpn
+    networkmanager_strongswan
     spectacle
+    strongswan
+    strongswanNM
     volumeicon
     xautolock
     xorg.xbacklight
+    xfce.xfce4-screenshooter
 
     # Network
     avahi
@@ -93,7 +106,7 @@
     simple-scan
     splix
     system_config_printer
-    xsane
+    #xsane
 
     # Utils
     arandr
@@ -104,7 +117,6 @@
     ranger
     unrar
     unzip
-    virtualbox
     wine
     xmlindent
 
@@ -120,8 +132,10 @@
     git-crypt
     gnumake
     gperf
-    libstdcxx5
+#    libstdcxx5
     libftdi1
+    #libudev
+    mailutils
     mcrypt
     mysql
     ncurses
@@ -132,21 +146,26 @@
     perl
     php
     php73Packages.composer
+    php73Extensions.xdebug
+    postfix
     postgresql
     python37Packages.pyserial
-    (python35.withPackages(ps: with ps; [ setuptools jinja2 ]))
+    (python37.withPackages(ps: with ps; [ setuptools jinja2 ]))
     python37Packages.setuptools
     redis
     stack
     subversion
+    #udev
     yarn
     ycmd
 
     # Apps
     # caprine
+    anydesk
     chromium
     discord
     easytag
+    firefox
     gimp
     google-chrome
     imagemagick
@@ -161,15 +180,14 @@
     steam
     tdesktop
     teamviewer
-    tuxguitar
+    teams
     vlc
     weechat
     wireshark
+    zoom-us
 
     # Gaming
     openmw
-
-    # XFCE
 
   ];
 }

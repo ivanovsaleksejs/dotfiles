@@ -14,9 +14,9 @@
     };
 
     phpfpm = {
-      extraConfig = ''
-        error_log = "/run/phpfpm/php-fpm.log"
-      '';
+      settings = {
+        #error_log = "/run/phpfpm/php-fpm.log";
+      };
       phpOptions = ''
         cgi.fix_pathinfo = 0;
       '';

@@ -8,6 +8,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      /etc/nixos/users.nix
       /etc/nixos/services.nix
       /etc/nixos/bashrc.nix
       /etc/nixos/packages.nix
@@ -30,11 +31,12 @@
   networking = {
     networkmanager = {
       enable = true;
+      enableStrongSwan = true;
     };
     firewall = {
       #autoLoadConntrackHelpers = true;
       #connectionTrackingModules = [ "pptp" ];
-      allowedTCPPorts = [ 80 443 3000 5353 6881 8081 8881 ];
+      allowedTCPPorts = [ 25 80 443 3000 5353 6881 8081 8881 9000 ];
     };
     #nameservers = [ "192.168.0.1" "8.8.8.8" "9.9.9.9" ];
   };
@@ -48,14 +50,17 @@
     };
     sane = {
       enable = true;
-      extraBackends = [ pkgs.hplipWithPlugin ];
+      extraBackends = [ pkgs.sane-airscan ];
       #netConf = "192.168.1.8:9100";
       #extraConfig."samsung" = ''
       #  net 192.168.1.8 0x04e8
       #'';
     };
   };
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+    docker.enable = true;
+  };
   users.extraGroups.vboxusers.members = [ "aleksejs" ];
 
   nix.gc = {
@@ -68,9 +73,10 @@
   system = {
     #nssHosts = [ "mdns" ];
     autoUpgrade = {
-      enable = true;
+      enable = false;
     };
   };
+  #users.users.aleksejs.extraGroups = [ "scanner" "lp" ];
   nixpkgs.config.allowUnfree = true;
 
 }

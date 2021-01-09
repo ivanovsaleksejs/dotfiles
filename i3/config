@@ -1,6 +1,7 @@
 set $mod Mod4
 
 for_window [class="spectacle"] floating enable
+for_window [class="xfce4-screenshooter"] floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
 for_window [class="TeamViewer"] floating enable
@@ -25,8 +26,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+F2 exec dmenu_run
 # start sudo dmenu (a program launcher)
 bindsym Shift+$mod+F2 exec ~/.config/i3/sudo_dmenu_run.sh
-# cheatsheets
-bindsym $mod+F3 exec terminator --profile=dark -mbT 'fzf' -e '~/.config/i3/cheatsheets.sh'
+bindsym $mod+F3 exec ~/.config/i3/dmenu_history.sh
 for_window [title="fzf"] floating enable, resize set 1024 768, move absolute position center
 # frequently used shortcuts
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
@@ -67,6 +67,7 @@ bindsym $mod+Shift+h move workspace to output left
 bindsym $mod+Shift+j move workspace to output down
 bindsym $mod+Shift+k move workspace to output up
 bindsym $mod+Shift+l move workspace to output right
+bindsym $mod+Shift+p move workspace to output primary secondary
 
 # move focused window using arrow keys
 bindsym $mod+Shift+Left move left

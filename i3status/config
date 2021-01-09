@@ -16,8 +16,6 @@ general {
     color_bad       = '#e89393'
 }
 
-order += "volume master"
-#order += "volume speaker"
 order += "disk /"
 #order += "disk /home"
 #order += "run_watch DHCP"
@@ -94,23 +92,3 @@ disk "/" {
     threshold_type = percentage_avail
 }
 
-volume master {
-    format = "%volume  "
-    format_muted = ""
-    device="pulse:running"
-    #mixer = "Master"
-    mixer_idx = -1
-}
-volume headphones {
-    format = "%volume  "
-    format_muted = ""
-    device = "pulse:4"
-    mixer = "Headphone"
-}
-
-volume speaker {
-    format = "%volume  "
-    format_muted = ""
-    device = "pulse:0"
-    mixer = "Speaker"
-}

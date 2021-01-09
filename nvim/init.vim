@@ -16,6 +16,11 @@ call plug#begin('~/.config/nvim/plugged')
 " File finder (fuzzy search, regex and more).
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 
+Plug 'vim-vdebug/vdebug'
+
+" Language server and completion
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
 " Search in files
 Plug 'https://github.com/eugen0329/vim-esearch'
 
@@ -25,13 +30,18 @@ Plug 'https://github.com/tpope/vim-surround'
 " GitHub-like colorscheme
 Plug 'https://github.com/endel/vim-github-colorscheme'
 
+Plug 'https://github.com/aonemd/kuroi.vim'
+
 " PaperColor colorscheme
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
 
 Plug 'https://github.com/tpope/vim-sleuth'
 
+" Commenter
+Plug 'scrooloose/nerdcommenter'
 
-Plug 'lifepillar/vim-mucomplete'
+
+"Plug 'lifepillar/vim-mucomplete'
 
 " Indent
 Plug 'junegunn/vim-easy-align'
@@ -53,12 +63,16 @@ call plug#end()
 " Add some filetypes
 au BufNewFile,BufRead *.hs set filetype=haskell
 au BufNewFile,BufRead *.nix set filetype=nix
+au BufNewFile,BufRead *.inc set filetype=php
 
 " General
 set number
 set mouse=a
 set incsearch
 set showcmd
+set shell=/bin/sh
+set scrolloff=5
+set modifiable ma
 
 " Use spaces when inserting a tab.
 set expandtab
@@ -70,8 +84,12 @@ set shiftround
 au FileType nix set tabstop=2
 au FileType nix set shiftwidth=2
 
-" PeperColor scheme for diff
+set termguicolors
+set background=dark
+colorscheme kuroi
+" PaperColor scheme for diff
 au FileType diff colorscheme PaperColor
+au FileType diff set background=light
 
 " Do not create swap-files.
 set noswapfile
@@ -81,9 +99,15 @@ set list listchars=tab:»·,trail:·,eol:¶
 set list!
 
 " Cursor line
-highlight NonText ctermfg=240 ctermbg=252 guifg=gray
-highlight CursorLine   cterm=NONE ctermbg=251 guibg=darkred
+highlight NonText ctermfg=240 ctermbg=250 guifg=#a0a0a0
+highlight CursorLine cterm=NONE ctermbg=254 guibg=#333333
 set cursorline
+" Matching parentheses
+highlight MatchParen cterm=NONE ctermbg=174 guifg=#fcd01e guibg=#000 gui=bold
+" Tabs
+highlight TabLine guifg=#333333 guibg=#a0a0a0
+highlight TabLineSel guifg=#000000 guibg=#b0b0b0
+
 
 " Add dash sign as word character for CSS files
 au FileType css set iskeyword+=-
@@ -108,10 +132,14 @@ nnoremap <M-d> :CtrlP<CR>
 nnoremap :W :%s/\s\+$//e<CR>:w
 vmap <C-c> "+y
 vmap <C-v> "0p
+nnoremap <M-v> ci'<C-r>+<ESC>
+
 nnoremap <C-l> :set list!<CR>
 nnoremap <M-l> :tabn<CR>
 nnoremap <C-Right> :tabn<CR>
 nnoremap <C-Left> :tabp<CR>
+nmap <C-C> :let @" = expand("%")<CR>
+nmap <C-s> :CocCommand explorer<CR>
 
 " Open esearch dialog
 call esearch#map('<C-g>', 'esearch')
