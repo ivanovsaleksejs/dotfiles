@@ -14,11 +14,15 @@
   console.font = "sun12x22";
 
   services.xserver = {
-    videoDrivers = [ "intel" ];
+    videoDrivers = ["modesetting"];
     enable = true;
     libinput = {
       enable = true;
-      scrollMethod = "edge";
+      touchpad = {
+        scrollMethod = "edge";
+        tapping = true;
+      };
+#      disableWhileTyping = true;
     };
     windowManager = {
       i3.enable = true;
@@ -42,10 +46,18 @@
         x = 1920;
         y = 1080;
       }
+      {
+        x = 3440;
+        y = 1440;
+      }
+      {
+        x = 2560;
+        y = 1080;
+      }
     ];
     virtualScreen = {
-      x = 1920;
-      y = 1080;
+      x = 3440;
+      y = 1440;
     };
 
     synaptics.enable = false;
@@ -63,7 +75,6 @@
       font-awesome-ttf
       noto-fonts-emoji
       source-code-pro
-      source-sans-pro
       dejavu_fonts
       liberation_ttf
       emojione

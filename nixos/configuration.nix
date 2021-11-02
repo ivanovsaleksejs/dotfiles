@@ -15,6 +15,7 @@
       /etc/nixos/ui.nix
       /etc/nixos/web.nix
       /etc/nixos/sane-extra-config.nix
+      /etc/nixos/cron.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -28,6 +29,8 @@
 
   #boot.kernel.sysctl."net.ipv6.conf.wlp1s0.disable_ipv6" = true;
 
+  #boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+
   networking = {
     networkmanager = {
       enable = true;
@@ -36,7 +39,7 @@
     firewall = {
       #autoLoadConntrackHelpers = true;
       #connectionTrackingModules = [ "pptp" ];
-      allowedTCPPorts = [ 25 80 443 3000 5353 6881 8081 8881 9000 ];
+      allowedTCPPorts = [ 25 80 443 1080 3000 5353 6881 8081 8881 9000 9060 9100 ];
     };
     #nameservers = [ "192.168.0.1" "8.8.8.8" "9.9.9.9" ];
   };
@@ -50,11 +53,8 @@
     };
     sane = {
       enable = true;
-      extraBackends = [ pkgs.sane-airscan ];
-      #netConf = "192.168.1.8:9100";
-      #extraConfig."samsung" = ''
-      #  net 192.168.1.8 0x04e8
-      #'';
+      extraBackends = [ pkgs.sane-airscan pkgs.hplipWithPlugin ];
+      #netConf = "192.168.1.8";
     };
   };
   virtualisation = {

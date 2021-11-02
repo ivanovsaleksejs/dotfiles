@@ -37,7 +37,7 @@
       }
 
       function ci() {
-        tf up && svn ci --changelist "$1" -m "$2" && tf down
+        svn ci --changelist "$1" -m "$2"
       }
 
       alias ls='ls --color=auto'
