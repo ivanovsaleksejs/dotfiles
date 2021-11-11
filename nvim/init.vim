@@ -55,8 +55,16 @@ Plug 'https://github.com/neovimhaskell/haskell-vim'
 " nix syntax highlight and completion
 Plug 'LnL7/vim-nix'
 
+" HTML/CSS
+Plug 'mattn/emmet-vim'
+
+" Laravel Blade
+Plug 'jwalton512/vim-blade'
+
 Plug 'https://github.com/elzr/vim-json', {'for': 'json'}
 Plug 'https://github.com/pangloss/vim-javascript', {'for': ['json', 'javascript', 'javascript.jsx']}
+
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -64,6 +72,8 @@ call plug#end()
 au BufNewFile,BufRead *.hs set filetype=haskell
 au BufNewFile,BufRead *.nix set filetype=nix
 au BufNewFile,BufRead *.inc set filetype=php
+au BufNewFile,BufRead *.tpl set filetype=html
+au BufNewFile,BufRead *.blade.php set filetype=blade
 
 " General
 set number
@@ -83,6 +93,10 @@ set shiftround
 " Indentation for .nix files
 au FileType nix set tabstop=2
 au FileType nix set shiftwidth=2
+"
+" Indentation for .js files
+au FileType javascript set tabstop=2
+au FileType javascript set shiftwidth=2
 
 set termguicolors
 set background=dark
@@ -127,6 +141,8 @@ set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
 " Key bindings
+map <MiddleMouse> <Nop>
+map <2-MiddleMouse> <Nop>
 imap <Ins> <NOP>
 nnoremap <M-d> :CtrlP<CR>
 nnoremap :W :%s/\s\+$//e<CR>:w
@@ -141,11 +157,16 @@ nnoremap <C-Left> :tabp<CR>
 nmap <C-C> :let @" = expand("%")<CR>
 nmap <C-s> :CocCommand explorer<CR>
 
+map vp :exec "w !vpaste ft=".&ft<CR>
+vmap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
+
 " Open esearch dialog
-call esearch#map('<C-g>', 'esearch')
-call esearch#map('<M-g>', 'esearch')
+" call esearch#map('<C-f>', 'operator-esearch-prefill')
+call esearch#map('<M-f>', 'esearch')
 " Start esearch autofilled with a word under the cursor
-call esearch#map('<C-f>', 'esearch-word-under-cursor')
+" call esearch#map('<C-f>', 'operator-esearch-prefill')
+vmap <c-f> y<plug>(esearch)<c-r>"
+nmap <c-f> yiw<plug>(esearch)<c-r>"
 
 hi Search ctermfg=black ctermbg=white guifg=#000000 guibg=#FACE8D
 hi ESearchMatch ctermfg=black ctermbg=white guifg=#000000 guibg=#FACE8D
