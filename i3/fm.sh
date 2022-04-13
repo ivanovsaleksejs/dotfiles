@@ -8,8 +8,8 @@ while [ "$file" ]; do
 		if [ -d "$file" ]; then
 			cd "$file"
 		else [ -f "$file" ]
-			if which xdg-open &> /dev/null; then
-				exec xdg-open "$owd/$file" &
+			if which mimeopen &> /dev/null; then
+				exec mimeopen "$owd/$file" 
 				unset file
 			fi
 		fi

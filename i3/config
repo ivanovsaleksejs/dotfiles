@@ -3,8 +3,11 @@ set $mod Mod4
 for_window [class="spectacle"] floating enable
 for_window [class="xfce4-screenshooter"] floating enable
 for_window [class="blueman-manager"] floating enable
-for_window [class="pavucontrol"] floating enable
+for_window [title="Volume Control"] floating enable
 for_window [class="TeamViewer"] floating enable
+for_window [title="Qalculate!"] floating enable
+for_window [title="KeePass"] floating enable
+for_window [title="float"] floating enable
 
 for_window [class=".*"] title_format "<b>%title</b> (%instance)"
 
@@ -15,6 +18,8 @@ floating_modifier $mod
 focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec terminator
+# start a terminal in a floating window
+bindsym $mod+Ctrl+Return exec terminator --title float
 # kill focused window
 bindsym $mod+Shift+q kill
 # task switcher
@@ -26,12 +31,16 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+F2 exec dmenu_run
 # start sudo dmenu (a program launcher)
 bindsym Shift+$mod+F2 exec ~/.config/i3/sudo_dmenu_run.sh
-bindsym $mod+F3 exec ~/.config/i3/dmenu_history.sh
+bindsym $mod+F3 exec ~/.config/i3/dmenu_workspaces.sh
 for_window [title="fzf"] floating enable, resize set 1024 768, move absolute position center
 # frequently used shortcuts
 bindsym $mod+F4 exec ~/.config/i3/shortcuts.sh
+# mount drive
+bindsym $mod+F5 exec ~/.config/i3/dmenu_mount.sh
+# umount drive
+bindsym $mod+F6 exec ~/.config/i3/dmenu_umount.sh
 # searches in nixos packages and launches in nix-shell
-bindsym $mod+F5 exec ~/.config/i3/dmenu_nixos.sh
+bindsym $mod+F7 exec ~/.config/i3/dmenu_nixos.sh
 # Browses files in cwd and opens file with xdg
 bindsym $mod+d exec ~/.config/i3/fm.sh
 # lock screen
@@ -40,6 +49,8 @@ bindsym $mod+Ctrl+l exec ~/.config/i3/lock.sh
 bindsym XF86PowerOff exec ~/.config/i3/shutdown_menu.sh
 # screen grab
 bindsym Print exec spectacle
+# calculator
+bindsym $mod+equal exec qalculate-gtk
 
 # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl  -- set-sink-volume $(pactl -- list |  grep RUNNING -B1 | grep -o -E '[0-9]+' | head -1) +5% #increase sound volume
@@ -67,6 +78,7 @@ bindsym $mod+Shift+h move workspace to output left
 bindsym $mod+Shift+j move workspace to output down
 bindsym $mod+Shift+k move workspace to output up
 bindsym $mod+Shift+l move workspace to output right
+
 bindsym $mod+Shift+p move workspace to output primary secondary
 
 # move focused window using arrow keys
@@ -87,10 +99,11 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+control+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -102,13 +115,14 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $tag1 "1.root"
-set $tag2 "2.vim work"
-set $tag3 "3.work"
+set $tag2 "2.vim"
+set $tag3 "3.CR"
 set $tag4 "4.web"
-set $tag5 "5.IRC"
-set $tag6 "6.Steam"
-set $tag7 "7.Media"
-set $tag8 "8.TW"
+set $tag5 "5.IM"
+set $tag6 "6.Tools"
+set $tag7 "7.JS"
+set $tag8 "8.IS"
+set $tag9 "9.ZS"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -119,7 +133,7 @@ bindsym $mod+5 workspace $tag5
 bindsym $mod+6 workspace $tag6
 bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace $tag8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace $tag9
 bindsym $mod+0 workspace 10
 
 
@@ -132,7 +146,7 @@ bindsym $mod+Shift+5 move container to workspace $tag5
 bindsym $mod+Shift+6 move container to workspace $tag6
 bindsym $mod+Shift+7 move container to workspace $tag7
 bindsym $mod+Shift+8 move container to workspace $tag8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
@@ -172,6 +186,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # exec_always --no-startup-id $HOME/.config/launch.sh
 bar {
+#    output DP-1
+    output eDP-1
     status_command i3status
     # status_command i3blocks
     # status_command polybar top

@@ -18,6 +18,8 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 
 Plug 'vim-vdebug/vdebug'
 
+Plug 'vim-scripts/close-duplicate-tabs'
+
 " Language server and completion
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
@@ -66,6 +68,9 @@ Plug 'https://github.com/pangloss/vim-javascript', {'for': ['json', 'javascript'
 
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
 call plug#end()
 
 " Add some filetypes
@@ -83,6 +88,7 @@ set showcmd
 set shell=/bin/sh
 set scrolloff=5
 set modifiable ma
+set mmp=20000
 
 " Use spaces when inserting a tab.
 set expandtab

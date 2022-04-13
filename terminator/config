@@ -1,10 +1,47 @@
 [global_config]
-  always_split_with_profile = True
   focus = system
-  title_font = Source Code Pro 10
   title_transmit_bg_color = "#d30102"
+  always_split_with_profile = True
   title_use_system_font = False
+  title_font = Source Code Pro 10
 [keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#fbf1c7"
+    background_darkness = 1.0
+    cursor_blink = False
+    cursor_color = "#7c6f64"
+    font = Source Code Pro 11
+    foreground_color = "#3c3836"
+    show_titlebar = False
+    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+  [[gruvbox-dark]]
+    icon_bell = False
+    background_color = "#282828"
+    cursor_blink = False
+    cursor_color = "#7c6f64"
+    font = Source Code Pro 11
+    foreground_color = "#ebdbb2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+  [[gruvbox-light]]
+    allow_bold = False
+    icon_bell = False
+    background_color = "#ffffff"
+    background_darkness = 0.9
+    cursor_blink = False
+    cursor_color = "#002b36"
+    font = Source Code Pro 11
+    foreground_color = "#000000"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -33,39 +70,3 @@
       type = Terminal
       uuid = caf2a56b-25f7-44ef-ae5d-363cc4eec6e4
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#fbf1c7"
-    background_darkness = 1.0
-    cursor_blink = False
-    cursor_color = "#7c6f64"
-    font = Source Code Pro 11
-    foreground_color = "#3c3836"
-    icon_bell = False
-    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    show_titlebar = False
-    use_system_font = False
-  [[gruvbox-dark]]
-    background_color = "#282828"
-    cursor_blink = False
-    cursor_color = "#7c6f64"
-    font = Source Code Pro 11
-    foreground_color = "#ebdbb2"
-    icon_bell = False
-    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[gruvbox-light]]
-    background_color = "#ffffff"
-    background_darkness = 0.9
-    cursor_blink = False
-    cursor_color = "#002b36"
-    font = Source Code Pro 11
-    foreground_color = "#000000"
-    icon_bell = False
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_lines = 10000
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False

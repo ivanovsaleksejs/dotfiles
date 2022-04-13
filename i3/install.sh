@@ -7,6 +7,7 @@ ln -s ${PWD}/sudo_dmenu_run.sh ${HOME}/.config/i3/
 ln -s ${PWD}/dmenu_nixos.sh ${HOME}/.config/i3/
 ln -s ${PWD}/dmenu_running.sh ${HOME}/.config/i3/
 ln -s ${PWD}/dmenu_history.sh ${HOME}/.config/i3/
+ln -s ${PWD}/dmenu_workspaces.sh ${HOME}/.config/i3/
 ln -s ${PWD}/fm.sh ${HOME}/.config/i3/
 ln -s ${PWD}/lock.sh ${HOME}/.config/i3/
 ln -s ${PWD}/lastfm_wp.php ${HOME}/.config/i3/

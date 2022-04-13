@@ -22,7 +22,7 @@
 
       alias sudo='sudo '
 
-      alias background='curl "http://fair.lv/?user=AleksejsIvanovs&period=overall&rows=4&cols=7&imageSize=269&noborder=on&ignorePattern=/Best Of|Skywind OST|Game Soundtrack/&replace[]=498d8417f6084db98f70569066fc5cbd,718758354a5d26ae8183ededddba7d85&replace[]=9e14c69d22da476ab40bd5533c228c56,718758354a5d26ae8183ededddba7d85&replace[]=7e4e0e68f68a1084f971ccef277a0287,718758354a5d26ae8183ededddba7d85" --output ~/.config/i3/background.png && feh --bg-scale ~/.config/i3/background.png'
+      alias background='curl "http://fair.lv/?user=AleksejsIvanovs&period=all&rows=5&cols=9&imageSize=216&noborder=on&ignorePattern=/Best%20Of|Game%20Soundtrack|OST|UKF/&replace[]=d49d023f7f7b53ad140955b0421815cc,718758354a5d26ae8183ededddba7d85" --output ~/.config/i3/background.png && feh --bg-scale ~/.config/i3/background.png'
 
       function hs () {
         ghc -e "$1"

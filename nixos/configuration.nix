@@ -7,30 +7,30 @@
 {
   imports =
     if builtins.getEnv "target" == "VM"
-  	then
-	    [
-	      #./hardware-configuration.nix
-	      ./services_vm.nix
-	      ./bashrc.nix
-	      ./packages_vm.nix
-	      ./ui.nix
-	      #./web.nix
-	      #./sane-extra-config.nix
-	      ./users.nix
-	      ./vm.nix
-	    ]
-	else
-	    [
-          /etc/nixos/hardware-configuration.nix
-          /etc/nixos/users.nix
-          /etc/nixos/services.nix
-          /etc/nixos/bashrc.nix
-          /etc/nixos/packages.nix
-          /etc/nixos/ui.nix
-          /etc/nixos/web.nix
-          /etc/nixos/sane-extra-config.nix
-	  /etc/nixos/cron.nix
-	    ];
+    then
+    [
+      #./hardware-configuration.nix
+      ./services_vm.nix
+      ./bashrc.nix
+      ./packages_vm.nix
+      ./ui.nix
+      #./web.nix
+      #./sane-extra-config.nix
+      ./users.nix
+      ./vm.nix
+    ]
+    else
+    [
+      /etc/nixos/hardware-configuration.nix
+      /etc/nixos/users.nix
+      /etc/nixos/services.nix
+      /etc/nixos/bashrc.nix
+      /etc/nixos/packages.nix
+      /etc/nixos/ui.nix
+      /etc/nixos/web.nix
+      /etc/nixos/sane-extra-config.nix
+      /etc/nixos/cron.nix
+    ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {

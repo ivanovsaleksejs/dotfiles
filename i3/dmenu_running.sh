@@ -1,24 +1,13 @@
 #! /usr/bin/env bash
-# Search through open programs and switch to their tag
 application=$(
-	# List all running programs
-	xlsclients |\
-	# Fix Virtualbox and LibreOffice
-   	sed -e 's/.*VirtualBox/foobar  virtualbox/g' -e 's/.*soffice/foobar  libreoffice/g' |\
-	# Remove flash from results
-	grep -v "plugin-container" |\
-	# Show only app-names
-   	cut -d" " -f3 |\
-	# Pipe to dmenu ($@ to include font settings from dwm/config.h)
-	dmenu -l 40 -i -p "Switch to" $@
+    wmctrl -l | awk '{$1=$2=$3=""; print substr($0, 4);}' |\
+    dmenu -l 40 -i -p "Switch to window" $@
 )
-
-# Switch to chosen application
-case $application in
-	gimp | truecrypt)
-		xdotool search --onlyvisible -classname "$application" windowactivate &> /dev/null
-		;;
-	*)
-		xdotool search ".*${application}.*" windowactivate &> /dev/null
-		;;
+case ${application} in
+    "")
+	exit 1
+	;;
+    *)
+	wmctrl -a "${application}"
+	;;
 esac

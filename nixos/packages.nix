@@ -14,6 +14,10 @@ let
     (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-19.03.tar.gz)
     # reuse the current configuration
     { config = config.nixpkgs.config; };
+  notsoold = import
+    (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-21.05.tar.gz)
+    # reuse the current configuration
+    { config = config.nixpkgs.config; };
 in
 {
   nixpkgs.config = {
@@ -29,6 +33,10 @@ in
         config = config.nixpkgs.config;
       };
       superold = import <superold>
+      {
+        config = config.nixpkgs.config;
+      };
+      notsoold = import <notsoold>
       {
         config = config.nixpkgs.config;
       };
@@ -57,6 +65,7 @@ in
     direnv
     file
     gnome3.gnome-keyring
+    gnupg
     home-manager
     kdiff3
     libnotify
@@ -69,6 +78,7 @@ in
     openssl
     patchelf
     perl532Packages.FileMimeInfo
+    pinentry
     sysstat
     p7zip
     pmutils
@@ -191,11 +201,16 @@ in
     nodejs-14_x
     perl
     php
-    php73
+    php74
+    old.php73
     php74Packages.composer
-    php73Extensions.xdebug
     php74Extensions.pdo
     php74Extensions.pdo_dblib
+    php74Extensions.sqlsrv
+    php74Extensions.pdo_sqlsrv
+    php74Extensions.pdo_odbc
+    php80Extensions.pdo
+    php80Extensions.pdo_dblib
     postfix
     postgresql
     python27Full
@@ -206,6 +221,7 @@ in
     stack
     subversion
     #udev
+    unixODBC
     vimPlugins.vim-xdebug
     yarn
     ycmd
@@ -231,7 +247,7 @@ in
     signal-desktop
     skypeforlinux
     spotify
-    steam
+    unstable.steam
     tdesktop
     teams
     teamviewer
