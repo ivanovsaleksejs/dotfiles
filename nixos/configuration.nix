@@ -3,7 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  old = import
+    (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-21.11.tar.gz)
+    # reuse the current configuration
+    { config = config.nixpkgs.config; };
+in
 {
   imports =
     if builtins.getEnv "target" == "VM"
@@ -39,6 +44,7 @@
     grub.gfxmodeEfi = "1024x576";
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_5_18;
   #boot.kernelModules = [ "nf_conntrack_pptp" ];
 
   #boot.kernel.sysctl."net.ipv6.conf.wlp1s0.disable_ipv6" = true;
@@ -59,7 +65,10 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      package = old.bluezFull;
+    };
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
@@ -85,6 +94,7 @@
   time.timeZone = "Europe/Riga";
 
   system = {
+    stateVersion = "22.05";
     #nssHosts = [ "mdns" ];
     autoUpgrade = {
       enable = false;
